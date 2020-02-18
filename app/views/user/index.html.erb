@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title >PhotoSite</title>
+  <style>
+    table {
+      border: 1px solid black;
+      width: 80%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 15px;
+      color: red;
+      font-size: 20pt;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+<marquee><h1 style="color:Black; font-size:30pt">PhotoSite</h1></marquee>
+<table>
+  <caption style="color:Blue; font-size:25pt"><b>List of Users</b></caption>
+  <thead>
+  <th>User</th>
+  <th>First</th>
+  <th>Last</th>
+  </thead>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.id, user_photos_path(user.id) %></td>
+      <td><%= link_to user.first_name, user_photos_path(user.id) %></td>
+      <td><%= link_to user.last_name, user_photos_path(user.id) %></td>
+    </tr>
+  <% end %>
+</table>
+</body>
+</html>
